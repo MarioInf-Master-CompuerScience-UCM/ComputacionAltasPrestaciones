@@ -1,0 +1,60 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+
+Begin optimization report for: main()
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (main()) [1] hello.c(8,11)
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at hello.c(14,2)
+remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
+
+    Report from: Code generation optimizations [cg]
+
+hello.c(8,11):remark #34051: REGISTER ALLOCATION : [main] hello.c:8
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :    5[ rax rdx rbx rsi rdi]
+        
+    Routine temporaries
+        Total         :      80
+            Global    :      14
+            Local     :      66
+        Regenerable   :      38
+        Spilled       :       0
+        
+    Routine stack
+        Variables     :       8 bytes*
+            Reads     :       4 [0.00e+00 ~ 0.0%]
+            Writes    :       3 [2.50e+00 ~ 2.5%]
+        Spills        :      40 bytes*
+            Reads     :      10 [1.25e+01 ~ 12.5%]
+            Writes    :      10 [0.00e+00 ~ 0.0%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================

@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "nbody.h": "c",
+        "malloc.h": "c",
+        "immintrin.h": "c"
+    }
+}

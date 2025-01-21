@@ -1,0 +1,28 @@
+{
+    "folders": [
+        {
+            "path": "tema1_introduccion"
+        },
+        {
+            "path": "tema2_arquitecturasYAplicacionesParalelas"
+        },
+        {
+            "path": "tema3_paralelismoDeDatos"
+        },
+        {
+            "path": "tema4_paralelizacionBasadaEnMemoriaCompartida"
+        },
+        {
+            "path": "tema6_computacionHeterogenea"
+        },
+        {
+            "path": "trabajoFinal"
+        },
+        {
+            "path": "examenes"
+        },
+        {
+            "path": "."
+        },
+    ]
+}

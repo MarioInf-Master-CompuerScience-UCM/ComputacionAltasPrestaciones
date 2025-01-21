@@ -1,0 +1,47 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C++ Intel(R) 64 Compiler Classic for applications running on Intel(R) 64, Version 2021.6.0 Build 20220226_000000
+
+Compiler options: -I. -g -std=c++11 -O2 -xHost -qopt-report=5 -qopt-report-phase=vec -qopt-report-filter=main.cc,15-25 -c -o main.o
+
+Begin optimization report for: main(int, char **)
+
+    Report from: Vector optimizations [vec]
+
+
+      LOOP BEGIN at main.cc(24,5) inlined into main.cc(82,13)
+      <Peeled loop for vectorization>
+      LOOP END
+
+      LOOP BEGIN at main.cc(24,5) inlined into main.cc(82,13)
+         remark #15381: vectorization support: unaligned access used inside loop body
+         remark #15305: vectorization support: vector length 8
+         remark #15309: vectorization support: normalized vectorization overhead 0.812
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15450: unmasked unaligned unit stride loads: 4 
+         remark #15475: --- begin vector cost summary ---
+         remark #15476: scalar cost: 70 
+         remark #15477: vector cost: 8.000 
+         remark #15478: estimated potential speedup: 6.570 
+         remark #15488: --- end vector cost summary ---
+      LOOP END
+
+      LOOP BEGIN at main.cc(24,5) inlined into main.cc(82,13)
+      <Remainder loop for vectorization>
+      LOOP END
+===========================================================================
+
+Begin optimization report for: CalculateElectricPotential(int, const Charge_Distribution &, float, float, float, float &)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at main.cc(24,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+   remark #15346: vector dependence: assumed ANTI dependence between chg->x[i] (26:35) and *phi (29:9)
+   remark #15346: vector dependence: assumed FLOW dependence between *phi (29:9) and chg->x[i] (26:35)
+LOOP END
+===========================================================================

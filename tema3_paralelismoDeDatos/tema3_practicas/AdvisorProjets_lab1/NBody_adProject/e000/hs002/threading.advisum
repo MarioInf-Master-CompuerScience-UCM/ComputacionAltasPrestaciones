@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- <!DOCTYPE IntelParallelAdvisorSummaryCollection SYSTEM  "IntelParallelAdvisorSummaryCollection.dtd"> -->
+
+<IntelParallelAdvisorSummary version="" 
+                             kind="DATAKIND_SURVEY_EX" >
+  <hotspot filename="/home/mario/Documentos/masterIngenieriaInformatica/computacionAltasPrestaciones/tema3_paralelismoDeDatos/lab1/NBody/nbody.c"
+           line_no="84"
+           routine="main"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="1.100000E-01"
+           trip_counts=""
+           func_instance="7"
+           priority="0"/>
+  <hotspot filename="/home/mario/Documentos/masterIngenieriaInformatica/computacionAltasPrestaciones/tema3_paralelismoDeDatos/lab1/NBody/nbody.c"
+           line_no="86"
+           routine="main"
+           is_vectorized="0"
+           self_time="1.000000E-02"
+           total_time="1.100000E-01"
+           trip_counts=""
+           func_instance="6"
+           priority="0"/>
+  <hotspot filename="/home/mario/Documentos/masterIngenieriaInformatica/computacionAltasPrestaciones/tema3_paralelismoDeDatos/lab1/NBody/nbody.c"
+           line_no="98"
+           routine="main"
+           is_vectorized="1"
+           self_time="1.000000E-01"
+           total_time="1.000000E-01"
+           trip_counts=""
+           func_instance="18"
+           confidence="0"
+           efficiency="1.091250E+02"
+           referenceEfficiency="1.250000E+01"
+           priority="0"/>
+</IntelParallelAdvisorSummary >

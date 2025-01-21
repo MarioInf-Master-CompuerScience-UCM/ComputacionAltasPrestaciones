@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<bag xmlns:float="http://www.w3.org/2001/XMLSchema#float" xmlns:int="http://www.w3.org/2001/XMLSchema#int" xmlns:unsignedInt="http://www.w3.org/2001/XMLSchema#unsignedInt" xmlns:unsignedLong="http://www.w3.org/2001/XMLSchema#unsignedLong" int:version="16">
+ <issues>
+  <issue>
+   <unsignedInt:flags>66</unsignedInt:flags>
+   <id>compiler_diag_issue_15542</id>
+   <int:severity>1</int:severity>
+   <text>compiler_diag_issue_15542_text</text>
+   <title>compiler_diag_issue_15542_title</title>
+   <attributes>
+    <float:severity>1</float:severity>
+   </attributes>
+   <parameters/>
+   <recommendations>
+    <recommendation>
+     <int:confidence>1</int:confidence>
+     <unsignedInt:flags>8</unsignedInt:flags>
+     <id>compiler_diag_rec_15542</id>
+     <text>compiler_diag_rec_15542_text</text>
+     <title>Recommendations </title>
+     <attributes>
+      <float:confidence>1</float:confidence>
+     </attributes>
+     <parameters/>
+    </recommendation>
+   </recommendations>
+   <unsignedLong:rowKey>6</unsignedLong:rowKey>
+  </issue>
+  <issue>
+   <unsignedInt:flags>66</unsignedInt:flags>
+   <id>compiler_diag_issue_15542</id>
+   <int:severity>1</int:severity>
+   <text>compiler_diag_issue_15542_text</text>
+   <title>compiler_diag_issue_15542_title</title>
+   <attributes>
+    <float:severity>1</float:severity>
+   </attributes>
+   <parameters/>
+   <recommendations>
+    <recommendation>
+     <int:confidence>1</int:confidence>
+     <unsignedInt:flags>8</unsignedInt:flags>
+     <id>compiler_diag_rec_15542</id>
+     <text>compiler_diag_rec_15542_text</text>
+     <title>Recommendations </title>
+     <attributes>
+      <float:confidence>1</float:confidence>
+     </attributes>
+     <parameters/>
+    </recommendation>
+   </recommendations>
+   <unsignedLong:rowKey>7</unsignedLong:rowKey>
+  </issue>
+  <issue>
+   <unsignedInt:flags>578</unsignedInt:flags>
+   <id>compiler_diag_issue_0</id>
+   <int:severity>1</int:severity>
+   <text/>
+   <title/>
+   <attributes>
+    <float:severity>1</float:severity>
+   </attributes>
+   <parameters/>
+   <recommendations/>
+   <unsignedLong:rowKey>18</unsignedLong:rowKey>
+  </issue>
+ </issues>
+ <traits>
+  <trait>
+   <int:fieldId>0</int:fieldId>
+   <int:id>13</int:id>
+   <text>System Function Calls Present </text>
+   <unsignedLong:rowKey>1</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>0</int:fieldId>
+   <int:id>14</int:id>
+   <text>Indirect Function Calls Present </text>
+   <unsignedLong:rowKey>1</unsignedLong:rowKey>
+  </trait>
+  <trait>
+   <int:fieldId>0</int:fieldId>
+   <int:id>14</int:id>
+   <text>Indirect Function Calls Present </text>
+   <unsignedLong:rowKey>5</unsignedLong:rowKey>
+  </trait>
+ </traits>
+</bag>

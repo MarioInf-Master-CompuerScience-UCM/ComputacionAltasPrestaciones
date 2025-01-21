@@ -1,0 +1,223 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C Intel(R) 64 Compiler Classic for applications running on Intel(R) 64, Version 2021.6.0 Build 20220226_000000
+
+Compiler options: -I. -I./ -O2 -g -qopt-report=5 -xCORE_AVX2 -D__DO_FLOAT__ -xAVX -imf-precisionlow -imf-domain-exclusion31 -D_VML_ACCURACY_EP_ -mkl -o black-scholes
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: main(int, char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (main(int, char **)) [1/2=50.0%] main.c(46,34)
+  -> EXTERN: (55,9) printf(const char *__restrict__, ...)
+  -> EXTERN: (57,9) sscanf(const char *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (61,5) InitData(int, tfloat **, tfloat **, tfloat **, tfloat **, tfloat **, tfloat **, tfloat **)
+  -> INLINE: (62,15) get_time_sec() (isz = 10) (sz = 15)
+    -> EXTERN: (40,2) gettimeofday(struct timeval *__restrict__, void *__restrict__)
+  -> EXTERN: (63,5) BlackScholesFormula_Compiler(int, tfloat, tfloat, tfloat *, tfloat *, tfloat *, tfloat *, tfloat *)
+  -> INLINE: (64,15) get_time_sec() (isz = 10) (sz = 15)
+    -> EXTERN: (40,2) gettimeofday(struct timeval *__restrict__, void *__restrict__)
+  -> EXTERN: (67,5) BlackScholesFormula_MKL(int, tfloat, tfloat, tfloat *, tfloat *, tfloat *, tfloat *, tfloat *)
+  -> INLINE: (68,15) get_time_sec() (isz = 10) (sz = 15)
+    -> EXTERN: (40,2) gettimeofday(struct timeval *__restrict__, void *__restrict__)
+  -> EXTERN: (77,5) printf(const char *__restrict__, ...)
+  -> EXTERN: (78,5) printf(const char *__restrict__, ...)
+  -> EXTERN: (79,5) printf(const char *__restrict__, ...)
+  -> EXTERN: (80,5) printf(const char *__restrict__, ...)
+  -> EXTERN: (86,5) printf(const char *__restrict__, ...)
+  -> EXTERN: (87,5) printf(const char *__restrict__, ...)
+  -> EXTERN: (88,5) printf(const char *__restrict__, ...)
+  -> EXTERN: (91,5) FreeData(tfloat *, tfloat *, tfloat *, tfloat *, tfloat *, tfloat *, tfloat *)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at main.c(73,5)
+   remark #15388: vectorization support: reference vcall_compiler[i] has aligned access   [ main.c(74,17) ]
+   remark #15388: vectorization support: reference vput_compiler[i] has aligned access   [ main.c(75,16) ]
+   remark #15305: vectorization support: vector length 8
+   remark #15399: vectorization support: unroll factor set to 2
+   remark #15309: vectorization support: normalized vectorization overhead 0.797
+   remark #15355: vectorization support: vcalls is float type reduction   [ main.c(74,9) ]
+   remark #15355: vectorization support: vputs is float type reduction   [ main.c(75,9) ]
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 2 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 64 
+   remark #15477: vector cost: 9.250 
+   remark #15478: estimated potential speedup: 5.400 
+   remark #15486: divides: 2 
+   remark #15488: --- end vector cost summary ---
+LOOP END
+
+LOOP BEGIN at main.c(73,5)
+<Remainder loop for vectorization>
+   remark #15388: vectorization support: reference vcall_compiler[i] has aligned access   [ main.c(74,17) ]
+   remark #15388: vectorization support: reference vput_compiler[i] has aligned access   [ main.c(75,16) ]
+   remark #15305: vectorization support: vector length 8
+   remark #15309: vectorization support: normalized vectorization overhead 1.730
+   remark #15355: vectorization support: vcalls is float type reduction   [ main.c(74,9) ]
+   remark #15355: vectorization support: vputs is float type reduction   [ main.c(75,9) ]
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 2 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 64 
+   remark #15477: vector cost: 9.250 
+   remark #15478: estimated potential speedup: 5.400 
+   remark #15486: divides: 2 
+   remark #15488: --- end vector cost summary ---
+LOOP END
+
+LOOP BEGIN at main.c(73,5)
+<Remainder loop for vectorization>
+LOOP END
+
+LOOP BEGIN at main.c(82,5)
+<Peeled loop for vectorization>
+   remark #25015: Estimate of max trip count of loop=7
+LOOP END
+
+LOOP BEGIN at main.c(82,5)
+   remark #15389: vectorization support: reference vcall_mkl[i] has unaligned access   [ main.c(83,17) ]
+   remark #15388: vectorization support: reference vput_mkl[i] has aligned access   [ main.c(84,16) ]
+   remark #15381: vectorization support: unaligned access used inside loop body
+   remark #15305: vectorization support: vector length 8
+   remark #15399: vectorization support: unroll factor set to 2
+   remark #15309: vectorization support: normalized vectorization overhead 0.819
+   remark #15355: vectorization support: vcalls is float type reduction   [ main.c(50,5) ]
+   remark #15355: vectorization support: vputs is float type reduction   [ main.c(50,5) ]
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15442: entire loop may be executed in remainder
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15450: unmasked unaligned unit stride loads: 1 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 64 
+   remark #15477: vector cost: 10.000 
+   remark #15478: estimated potential speedup: 5.080 
+   remark #15486: divides: 2 
+   remark #15488: --- end vector cost summary ---
+LOOP END
+
+LOOP BEGIN at main.c(82,5)
+<Remainder loop for vectorization>
+   remark #15389: vectorization support: reference vcall_mkl[i] has unaligned access   [ main.c(83,17) ]
+   remark #15388: vectorization support: reference vput_mkl[i] has aligned access   [ main.c(84,16) ]
+   remark #15381: vectorization support: unaligned access used inside loop body
+   remark #15305: vectorization support: vector length 8
+   remark #15309: vectorization support: normalized vectorization overhead 1.638
+   remark #15355: vectorization support: vcalls is float type reduction   [ main.c(50,5) ]
+   remark #15355: vectorization support: vputs is float type reduction   [ main.c(50,5) ]
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+   remark #15442: entire loop may be executed in remainder
+   remark #15448: unmasked aligned unit stride loads: 1 
+   remark #15450: unmasked unaligned unit stride loads: 1 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 64 
+   remark #15477: vector cost: 10.000 
+   remark #15478: estimated potential speedup: 5.080 
+   remark #15486: divides: 2 
+   remark #15488: --- end vector cost summary ---
+LOOP END
+
+LOOP BEGIN at main.c(82,5)
+<Remainder loop for vectorization>
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+main.c(46,34):remark #34051: REGISTER ALLOCATION : [main] main.c:46
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   28[ rax rdx rcx rbx rsi rdi r8-r15 zmm0-zmm13]
+        
+    Routine temporaries
+        Total         :     324
+            Global    :      67
+            Local     :     257
+        Regenerable   :      60
+        Spilled       :      10
+        
+    Routine stack
+        Variables     :      60 bytes*
+            Reads     :      19 [2.58e+00 ~ 2.6%]
+            Writes    :       2 [2.72e-01 ~ 0.3%]
+        Spills        :      40 bytes*
+            Reads     :       6 [8.16e-01 ~ 0.8%]
+            Writes    :       5 [6.80e-01 ~ 0.7%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: get_time_sec()
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (get_time_sec()) [2/2=100.0%] main.c(36,22)
+  -> EXTERN: (40,2) gettimeofday(struct timeval *__restrict__, void *__restrict__)
+
+
+    Report from: Code generation optimizations [cg]
+
+main.c(36,22):remark #34051: REGISTER ALLOCATION : [get_time_sec] main.c:36
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :    4[ rax rsi rdi zmm0]
+        
+    Routine temporaries
+        Total         :      14
+            Global    :       6
+            Local     :       8
+        Regenerable   :       3
+        Spilled       :       0
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================

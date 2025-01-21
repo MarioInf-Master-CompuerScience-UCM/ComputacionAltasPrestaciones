@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<bag xmlns:boolean="http://www.w3.org/2001/XMLSchema#boolean" xmlns:int="http://www.w3.org/2001/XMLSchema#int" int:version="1">
+ <SurveyView int:survey_view_int_operations_mode="0">
+  <BottomUpGrid>
+   <ColumnStructure DefaultColumnLayout="Default"/>
+   <ColumnWidth int:fdVectInfoInstClasses="154" int:fdVectInfoVectDataTypes="63" int:fdVectInfoInstSets="49" int:fdVectorGain="49" int:fdVectorLength="49" int:fdTotalTime="83" int:fdSelfTime="91" int:fdTotalElapsedTime="84" int:fdSelfElapsedTime="84"/>
+   <ColumnState boolean:fdVectInfoInstSetAnalysis="true" boolean:fdVectInfo="true" boolean:fdCpuTime="false"/>
+  </BottomUpGrid>
+  <TopDownGrid>
+   <ColumnStructure DefaultColumnLayout="Top Down"/>
+  </TopDownGrid>
+ </SurveyView>
+ <workflow int:selected="0" boolean:accuracyEnable="true">
+  <pmVectorization>
+   <checked boolean:a1="true" boolean:a3="false" boolean:a6="false" boolean:a7="false"/>
+  </pmVectorization>
+ </workflow>
+ <MainView int:SidebarWidth="0"/>
+ <FilterView boolean:VectorizedButtonChecked="true" boolean:NotVectorizedButtonChecked="true" boolean:FakeLoopButtonChecked="false" boolean:LibrariesButtonChecked="false" ModuleFilterValue="All Modules" SourceFilterValue="All Sources" LoopModeFilterValue="Loops" ThreadFilterValue="All Threads"/>
+</bag>

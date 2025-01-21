@@ -1,0 +1,194 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C Intel(R) 64 Compiler Classic for applications running on Intel(R) 64, Version 2021.6.0 Build 20220226_000000
+
+Compiler options: -I. -I./ -O2 -g -qopt-report=5 -xCORE_AVX2 -D__DO_FLOAT__ -xAVX -imf-precisionlow -imf-domain-exclusion31 -D_VML_ACCURACY_EP_ -mkl -o black-scholes
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: RandFloat..xN4vv(tfloat, tfloat)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (RandFloat..xN4vv(tfloat, tfloat)) data_gen.c(39,1)
+
+===========================================================================
+
+Begin optimization report for: RandFloat..xM4vv(tfloat, tfloat)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (RandFloat..xM4vv(tfloat, tfloat)) data_gen.c(39,1)
+
+===========================================================================
+
+Begin optimization report for: RandFloat(tfloat, tfloat)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (RandFloat(tfloat, tfloat)) data_gen.c(39,1)
+
+===========================================================================
+
+Begin optimization report for: FreeData(tfloat *, tfloat *, tfloat *, tfloat *, tfloat *, tfloat *, tfloat *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (FreeData(tfloat *, tfloat *, tfloat *, tfloat *, tfloat *, tfloat *, tfloat *)) [2/3=66.7%] data_gen.c(105,135)
+  -> EXTERN: (106,5) _mm_free(void *)
+  -> EXTERN: (107,5) _mm_free(void *)
+  -> EXTERN: (108,5) _mm_free(void *)
+  -> EXTERN: (109,5) _mm_free(void *)
+  -> EXTERN: (110,5) _mm_free(void *)
+  -> EXTERN: (111,5) _mm_free(void *)
+  -> EXTERN: (112,5) _mm_free(void *)
+
+
+    Report from: Code generation optimizations [cg]
+
+data_gen.c(105,135):remark #34051: REGISTER ALLOCATION : [FreeData] data_gen.c:105
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   11[ rdx rcx rbx rbp rsi rdi r8-r9 r12 r14-r15]
+        
+    Routine temporaries
+        Total         :      26
+            Global    :      11
+            Local     :      15
+        Regenerable   :       2
+        Spilled       :       5
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: InitData(int, tfloat **, tfloat **, tfloat **, tfloat **, tfloat **, tfloat **, tfloat **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (InitData(int, tfloat **, tfloat **, tfloat **, tfloat **, tfloat **, tfloat **, tfloat **)) [3/3=100.0%] data_gen.c(55,151)
+  -> EXTERN: (60,32) _mm_malloc(size_t, size_t)
+  -> EXTERN: (61,32) _mm_malloc(size_t, size_t)
+  -> EXTERN: (62,32) _mm_malloc(size_t, size_t)
+  -> EXTERN: (63,32) _mm_malloc(size_t, size_t)
+  -> EXTERN: (64,32) _mm_malloc(size_t, size_t)
+  -> EXTERN: (65,32) _mm_malloc(size_t, size_t)
+  -> EXTERN: (66,32) _mm_malloc(size_t, size_t)
+  -> EXTERN: (69,9) printf(const char *__restrict__, ...)
+  -> EXTERN: (70,9) exit(int)
+  -> EXTERN: (74,5) srand(unsigned int)
+  -> INLINE: (79,22) RandFloat(tfloat, tfloat) (isz = 4) (sz = 13)
+    -> EXTERN: (40,12) rand(void)
+  -> INLINE: (80,22) RandFloat(tfloat, tfloat) (isz = 4) (sz = 13)
+    -> EXTERN: (40,12) rand(void)
+  -> INLINE: (81,22) RandFloat(tfloat, tfloat) (isz = 4) (sz = 13)
+    -> EXTERN: (40,12) rand(void)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at data_gen.c(77,5)
+   remark #15388: vectorization support: reference ts0[i] has aligned access   [ data_gen.c(79,13) ]
+   remark #15388: vectorization support: reference tx[i] has aligned access   [ data_gen.c(80,13) ]
+   remark #15388: vectorization support: reference tt[i] has aligned access   [ data_gen.c(81,13) ]
+   remark #15388: vectorization support: reference tvcall_compiler[i] has aligned access   [ data_gen.c(88,9) ]
+   remark #15388: vectorization support: reference tvput_compiler[i] has aligned access   [ data_gen.c(89,9) ]
+   remark #15388: vectorization support: reference tvcall_mkl[i] has aligned access   [ data_gen.c(90,9) ]
+   remark #15388: vectorization support: reference tvput_mkl[i] has aligned access   [ data_gen.c(91,9) ]
+   remark #15305: vectorization support: vector length 8
+   remark #15525: call to function 'rand(void)' is serialized   [ data_gen.c(40,12) ]
+   remark #15525: call to function 'rand(void)' is serialized   [ data_gen.c(40,12) ]
+   remark #15525: call to function 'rand(void)' is serialized   [ data_gen.c(40,12) ]
+   remark #15301: SIMD LOOP WAS VECTORIZED
+   remark #15449: unmasked aligned unit stride stores: 7 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 340 
+   remark #15477: vector cost: 315.000 
+   remark #15478: estimated potential speedup: 1.070 
+   remark #15485: serialized function calls: 3
+   remark #15487: type converts: 3 
+   remark #15488: --- end vector cost summary ---
+   remark #15489: --- begin vector function matching report ---
+   remark #15490: Function call: rand(void) with simdlen=8, actual parameter types: (void)   [ data_gen.c(40,12) ]
+   remark #26037: Library function call   [ data_gen.c(40,12) ]
+   remark #15490: Function call: rand(void) with simdlen=8, actual parameter types: (void)   [ data_gen.c(40,12) ]
+   remark #26037: Library function call   [ data_gen.c(40,12) ]
+   remark #15490: Function call: rand(void) with simdlen=8, actual parameter types: (void)   [ data_gen.c(40,12) ]
+   remark #26037: Library function call   [ data_gen.c(40,12) ]
+   remark #15493: --- end vector function matching report ---
+LOOP END
+
+LOOP BEGIN at data_gen.c(77,5)
+<Remainder loop for vectorization>
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+data_gen.c(55,151):remark #34051: REGISTER ALLOCATION : [InitData] data_gen.c:55
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   28[ rax rdx rcx rbx rsi rdi r8-r9 r12-r15 zmm0-zmm15]
+        
+    Routine temporaries
+        Total         :     187
+            Global    :     106
+            Local     :      81
+        Regenerable   :      23
+        Spilled       :      31
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :     304 bytes*
+            Reads     :      38 [1.24e+01 ~ 12.4%]
+            Writes    :      27 [7.88e+00 ~ 7.9%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================

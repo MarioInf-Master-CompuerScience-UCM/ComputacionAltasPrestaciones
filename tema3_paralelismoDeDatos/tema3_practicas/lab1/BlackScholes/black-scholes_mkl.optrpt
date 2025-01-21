@@ -1,0 +1,241 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C Intel(R) 64 Compiler Classic for applications running on Intel(R) 64, Version 2021.6.0 Build 20220226_000000
+
+Compiler options: -I. -I./ -O2 -g -qopt-report=5 -xCORE_AVX2 -D__DO_FLOAT__ -xAVX -imf-precisionlow -imf-domain-exclusion31 -D_VML_ACCURACY_EP_ -mkl -o black-scholes
+
+    Report from: Interprocedural optimizations [ipo]
+
+  WHOLE PROGRAM (SAFE) [EITHER METHOD]: false
+  WHOLE PROGRAM (SEEN) [TABLE METHOD]: false
+  WHOLE PROGRAM (READ) [OBJECT READER METHOD]: false
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+In the inlining report below:
+   "sz" refers to the "size" of the routine. The smaller a routine's size,
+      the more likely it is to be inlined.
+   "isz" refers to the "inlined size" of the routine. This is the amount
+      the calling routine will grow if the called routine is inlined into it.
+      The compiler generally limits the amount a routine can grow by having
+      routines inlined into it.
+
+Begin optimization report for: BlackScholesFormula_MKL(int, tfloat, tfloat, tfloat *, tfloat *, tfloat *, tfloat *, tfloat *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (BlackScholesFormula_MKL(int, tfloat, tfloat, tfloat *, tfloat *, tfloat *, tfloat *, tfloat *)) [1/1=100.0%] black-scholes_mkl.c(90,126)
+  -> EXTERN: (114,9) vmlSetMode(const unsigned int)
+  -> EXTERN: (115,9) vsDiv(const int, const float *, const float *, float *)
+  -> EXTERN: (116,9) vsLn(const int, const float *, float *)
+  -> EXTERN: (127,9) vsInvSqrt(const int, const float *, float *)
+  -> EXTERN: (128,9) vsExp(const int, const float *, float *)
+  -> EXTERN: (140,9) vsErf(const int, const float *, float *)
+  -> EXTERN: (141,9) vsErf(const int, const float *, float *)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at black-scholes_mkl.c(120,9)
+   remark #15388: vectorization support: reference b[j] has aligned access   [ black-scholes_mkl.c(121,13) ]
+   remark #15388: vectorization support: reference t[i+j] has aligned access   [ black-scholes_mkl.c(121,20) ]
+   remark #15388: vectorization support: reference a[j] has aligned access   [ black-scholes_mkl.c(122,13) ]
+   remark #15388: vectorization support: reference a[j] has aligned access   [ black-scholes_mkl.c(122,20) ]
+   remark #15388: vectorization support: reference b[j] has aligned access   [ black-scholes_mkl.c(122,27) ]
+   remark #15388: vectorization support: reference z[j] has aligned access   [ black-scholes_mkl.c(123,13) ]
+   remark #15388: vectorization support: reference t[i+j] has aligned access   [ black-scholes_mkl.c(123,20) ]
+   remark #15388: vectorization support: reference c[j] has aligned access   [ black-scholes_mkl.c(124,13) ]
+   remark #15388: vectorization support: reference z[j] has aligned access   [ black-scholes_mkl.c(124,30) ]
+   remark #15305: vectorization support: vector length 8
+   remark #15399: vectorization support: unroll factor set to 2
+   remark #15309: vectorization support: normalized vectorization overhead 0.200
+   remark #15301: SIMD LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 5 
+   remark #15449: unmasked aligned unit stride stores: 4 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 27 
+   remark #15477: vector cost: 2.500 
+   remark #15478: estimated potential speedup: 7.690 
+   remark #15488: --- end vector cost summary ---
+LOOP END
+
+LOOP BEGIN at black-scholes_mkl.c(120,9)
+<Remainder loop for vectorization>
+   remark #15388: vectorization support: reference b[j] has aligned access   [ black-scholes_mkl.c(121,13) ]
+   remark #15388: vectorization support: reference t[i+j] has aligned access   [ black-scholes_mkl.c(121,20) ]
+   remark #15388: vectorization support: reference a[j] has aligned access   [ black-scholes_mkl.c(122,13) ]
+   remark #15388: vectorization support: reference a[j] has aligned access   [ black-scholes_mkl.c(122,20) ]
+   remark #15388: vectorization support: reference b[j] has aligned access   [ black-scholes_mkl.c(122,27) ]
+   remark #15388: vectorization support: reference z[j] has aligned access   [ black-scholes_mkl.c(123,13) ]
+   remark #15388: vectorization support: reference t[i+j] has aligned access   [ black-scholes_mkl.c(123,20) ]
+   remark #15388: vectorization support: reference c[j] has aligned access   [ black-scholes_mkl.c(124,13) ]
+   remark #15388: vectorization support: reference z[j] has aligned access   [ black-scholes_mkl.c(124,30) ]
+   remark #15305: vectorization support: vector length 4
+   remark #15309: vectorization support: normalized vectorization overhead 0.800
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 5 
+   remark #15449: unmasked aligned unit stride stores: 4 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 27 
+   remark #15477: vector cost: 2.500 
+   remark #15478: estimated potential speedup: 7.690 
+   remark #15488: --- end vector cost summary ---
+LOOP END
+
+LOOP BEGIN at black-scholes_mkl.c(120,9)
+<Remainder loop for vectorization>
+LOOP END
+
+LOOP BEGIN at black-scholes_mkl.c(132,9)
+   remark #15388: vectorization support: reference a[j] has aligned access   [ black-scholes_mkl.c(134,25) ]
+   remark #15388: vectorization support: reference c[j] has aligned access   [ black-scholes_mkl.c(135,25) ]
+   remark #15388: vectorization support: reference a[j] has aligned access   [ black-scholes_mkl.c(136,13) ]
+   remark #15388: vectorization support: reference z[j] has aligned access   [ black-scholes_mkl.c(136,35) ]
+   remark #15388: vectorization support: reference c[j] has aligned access   [ black-scholes_mkl.c(137,13) ]
+   remark #15388: vectorization support: reference z[j] has aligned access   [ black-scholes_mkl.c(137,35) ]
+   remark #15305: vectorization support: vector length 8
+   remark #15399: vectorization support: unroll factor set to 2
+   remark #15309: vectorization support: normalized vectorization overhead 0.100
+   remark #15301: SIMD LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 4 
+   remark #15449: unmasked aligned unit stride stores: 2 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 23 
+   remark #15477: vector cost: 2.500 
+   remark #15478: estimated potential speedup: 6.900 
+   remark #15488: --- end vector cost summary ---
+LOOP END
+
+LOOP BEGIN at black-scholes_mkl.c(132,9)
+<Remainder loop for vectorization>
+   remark #15388: vectorization support: reference a[j] has aligned access   [ black-scholes_mkl.c(134,25) ]
+   remark #15388: vectorization support: reference c[j] has aligned access   [ black-scholes_mkl.c(135,25) ]
+   remark #15388: vectorization support: reference a[j] has aligned access   [ black-scholes_mkl.c(136,13) ]
+   remark #15388: vectorization support: reference z[j] has aligned access   [ black-scholes_mkl.c(136,35) ]
+   remark #15388: vectorization support: reference c[j] has aligned access   [ black-scholes_mkl.c(137,13) ]
+   remark #15388: vectorization support: reference z[j] has aligned access   [ black-scholes_mkl.c(137,35) ]
+   remark #15305: vectorization support: vector length 4
+   remark #15309: vectorization support: normalized vectorization overhead 0.700
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 4 
+   remark #15449: unmasked aligned unit stride stores: 2 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 23 
+   remark #15477: vector cost: 2.500 
+   remark #15478: estimated potential speedup: 6.900 
+   remark #15488: --- end vector cost summary ---
+LOOP END
+
+LOOP BEGIN at black-scholes_mkl.c(132,9)
+<Remainder loop for vectorization>
+LOOP END
+
+LOOP BEGIN at black-scholes_mkl.c(145,9)
+   remark #15388: vectorization support: reference a[j] has aligned access   [ black-scholes_mkl.c(147,13) ]
+   remark #15388: vectorization support: reference a[j] has aligned access   [ black-scholes_mkl.c(147,33) ]
+   remark #15388: vectorization support: reference c[j] has aligned access   [ black-scholes_mkl.c(148,13) ]
+   remark #15388: vectorization support: reference c[j] has aligned access   [ black-scholes_mkl.c(148,33) ]
+   remark #15388: vectorization support: reference vcall[i+j] has aligned access   [ black-scholes_mkl.c(149,13) ]
+   remark #15388: vectorization support: reference s0[i+j] has aligned access   [ black-scholes_mkl.c(149,26) ]
+   remark #15388: vectorization support: reference a[j] has aligned access   [ black-scholes_mkl.c(149,34) ]
+   remark #15388: vectorization support: reference x[i+j] has aligned access   [ black-scholes_mkl.c(149,42) ]
+   remark #15388: vectorization support: reference b[j] has aligned access   [ black-scholes_mkl.c(149,49) ]
+   remark #15388: vectorization support: reference c[j] has aligned access   [ black-scholes_mkl.c(149,54) ]
+   remark #15388: vectorization support: reference vput[i+j] has aligned access   [ black-scholes_mkl.c(150,13) ]
+   remark #15388: vectorization support: reference vcall[i+j] has aligned access   [ black-scholes_mkl.c(150,26) ]
+   remark #15388: vectorization support: reference s0[i+j] has aligned access   [ black-scholes_mkl.c(150,39) ]
+   remark #15388: vectorization support: reference x[i+j] has aligned access   [ black-scholes_mkl.c(150,49) ]
+   remark #15388: vectorization support: reference b[j] has aligned access   [ black-scholes_mkl.c(150,56) ]
+   remark #15305: vectorization support: vector length 8
+   remark #15301: SIMD LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 11 
+   remark #15449: unmasked aligned unit stride stores: 4 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 47 
+   remark #15477: vector cost: 4.250 
+   remark #15478: estimated potential speedup: 9.750 
+   remark #15488: --- end vector cost summary ---
+LOOP END
+
+LOOP BEGIN at black-scholes_mkl.c(145,9)
+<Remainder loop for vectorization>
+   remark #15388: vectorization support: reference a[j] has aligned access   [ black-scholes_mkl.c(147,13) ]
+   remark #15388: vectorization support: reference a[j] has aligned access   [ black-scholes_mkl.c(147,33) ]
+   remark #15388: vectorization support: reference c[j] has aligned access   [ black-scholes_mkl.c(148,13) ]
+   remark #15388: vectorization support: reference c[j] has aligned access   [ black-scholes_mkl.c(148,33) ]
+   remark #15388: vectorization support: reference vcall[i+j] has aligned access   [ black-scholes_mkl.c(149,13) ]
+   remark #15388: vectorization support: reference s0[i+j] has aligned access   [ black-scholes_mkl.c(149,26) ]
+   remark #15388: vectorization support: reference a[j] has aligned access   [ black-scholes_mkl.c(149,34) ]
+   remark #15388: vectorization support: reference x[i+j] has aligned access   [ black-scholes_mkl.c(149,42) ]
+   remark #15388: vectorization support: reference b[j] has aligned access   [ black-scholes_mkl.c(149,49) ]
+   remark #15388: vectorization support: reference c[j] has aligned access   [ black-scholes_mkl.c(149,54) ]
+   remark #15388: vectorization support: reference vput[i+j] has aligned access   [ black-scholes_mkl.c(150,13) ]
+   remark #15388: vectorization support: reference vcall[i+j] has aligned access   [ black-scholes_mkl.c(150,26) ]
+   remark #15388: vectorization support: reference s0[i+j] has aligned access   [ black-scholes_mkl.c(150,39) ]
+   remark #15388: vectorization support: reference x[i+j] has aligned access   [ black-scholes_mkl.c(150,49) ]
+   remark #15388: vectorization support: reference b[j] has aligned access   [ black-scholes_mkl.c(150,56) ]
+   remark #15305: vectorization support: vector length 2
+   remark #15309: vectorization support: normalized vectorization overhead 0.294
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 11 
+   remark #15449: unmasked aligned unit stride stores: 4 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 47 
+   remark #15477: vector cost: 4.250 
+   remark #15478: estimated potential speedup: 9.750 
+   remark #15488: --- end vector cost summary ---
+LOOP END
+
+LOOP BEGIN at black-scholes_mkl.c(145,9)
+<Remainder loop for vectorization>
+LOOP END
+
+
+Non-optimizable loops:
+
+
+LOOP BEGIN at black-scholes_mkl.c(96,5)
+   remark #15543: loop was not vectorized: loop with function call not considered an optimization candidate.
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+black-scholes_mkl.c(90,126):remark #34051: REGISTER ALLOCATION : [BlackScholesFormula_MKL] black-scholes_mkl.c:90
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   30[ rax rdx rcx rbx rsi rdi r8-r15 zmm0-zmm15]
+        
+    Routine temporaries
+        Total         :     239
+            Global    :      72
+            Local     :     167
+        Regenerable   :      33
+        Spilled       :      18
+        
+    Routine stack
+        Variables     :   16384 bytes*
+            Reads     :      17 [7.44e+00 ~ 7.4%]
+            Writes    :      15 [6.56e+00 ~ 6.6%]
+        Spills        :     208 bytes*
+            Reads     :      29 [2.24e+00 ~ 2.2%]
+            Writes    :      20 [8.19e-01 ~ 0.8%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================

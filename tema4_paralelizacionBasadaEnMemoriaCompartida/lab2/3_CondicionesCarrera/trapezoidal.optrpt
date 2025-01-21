@@ -1,0 +1,444 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+
+Begin optimization report for: main(int, char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (main(int, char **)) [1] trapezoidal.c(20,33)
+  -> INLINE: (29,7) atoi(const char *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (31,7) atoi(const char *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (32,17) atoi(const char *)
+     {{ Inlining of routines from system headers is omitted. Use -qopt-report=3 to view full report. }}
+  -> INLINE: (45,24) Trap_secuentual(double, double, int, double)
+    -> INLINE: (97,13) f(double)
+    -> INLINE: (97,22) f(double)
+  -> INLINE: (47,3) printResults(double, double, double, double, double, double, double)
+  -> INLINE: (54,14) Trap_atomic(double, double, int, double)
+    -> INLINE: (125,14) f(double)
+    -> INLINE: (125,23) f(double)
+  -> INLINE: (56,3) printResults(double, double, double, double, double, double, double)
+  -> INLINE: (64,14) Trap_critical(double, double, int, double)
+    -> INLINE: (159,14) f(double)
+    -> INLINE: (159,23) f(double)
+  -> INLINE: (66,3) printResults(double, double, double, double, double, double, double)
+  -> INLINE: (73,14) Trap_reduction(double, double, int, double)
+    -> INLINE: (181,13) f(double)
+    -> INLINE: (181,22) f(double)
+  -> INLINE: (75,3) printResults(double, double, double, double, double, double, double)
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at trapezoidal.c(130,4) inlined into trapezoidal.c(54,14)
+remark #16208: OpenMP multithreaded code generation for ATOMIC was successful
+OpenMP Construct at trapezoidal.c(163,3) inlined into trapezoidal.c(64,14)
+remark #16206: OpenMP multithreaded code generation for CRITICAL was successful
+OpenMP Construct at trapezoidal.c(109,2) inlined into trapezoidal.c(54,14)
+remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
+OpenMP Construct at trapezoidal.c(143,2) inlined into trapezoidal.c(64,14)
+remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
+OpenMP Construct at trapezoidal.c(179,2) inlined into trapezoidal.c(73,14)
+remark #16204: OpenMP multithreaded code generation for SINGLE was successful
+OpenMP Construct at trapezoidal.c(178,2) inlined into trapezoidal.c(73,14)
+remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at trapezoidal.c(96,2) inlined into trapezoidal.c(45,24)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at trapezoidal.c(96,2) inlined into trapezoidal.c(45,24)
+<Remainder loop for vectorization>
+LOOP END
+
+LOOP BEGIN at trapezoidal.c(124,3) inlined into trapezoidal.c(54,14)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at trapezoidal.c(124,3) inlined into trapezoidal.c(54,14)
+<Remainder loop for vectorization>
+LOOP END
+
+LOOP BEGIN at trapezoidal.c(158,3) inlined into trapezoidal.c(64,14)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at trapezoidal.c(158,3) inlined into trapezoidal.c(64,14)
+<Remainder loop for vectorization>
+LOOP END
+
+LOOP BEGIN at trapezoidal.c(178,2) inlined into trapezoidal.c(73,14)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ trapezoidal.c(180,3) ]
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ trapezoidal.c(182,3) ]
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at trapezoidal.c(178,2) inlined into trapezoidal.c(73,14)
+<Remainder loop for vectorization>
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+trapezoidal.c(20,33):remark #34051: REGISTER ALLOCATION : [main] trapezoidal.c:20
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   30[ rax rdx rcx rbx rsi rdi r8-r15 zmm0-zmm15]
+        
+    Routine temporaries
+        Total         :    1092
+            Global    :     258
+            Local     :     834
+        Regenerable   :     361
+        Spilled       :      34
+        
+    Routine stack
+        Variables     :     178 bytes*
+            Reads     :      22 [3.64e-01 ~ 0.4%]
+            Writes    :      33 [2.00e+00 ~ 2.0%]
+        Spills        :     528 bytes*
+            Reads     :     106 [7.78e+00 ~ 7.8%]
+            Writes    :      73 [2.00e+00 ~ 2.0%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: f(double)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (f(double)) [3] trapezoidal.c(195,20)
+
+
+    Report from: Code generation optimizations [cg]
+
+trapezoidal.c(195,20):remark #34051: REGISTER ALLOCATION : [f] trapezoidal.c:195
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :    4[ zmm0-zmm3]
+        
+    Routine temporaries
+        Total         :      22
+            Global    :      11
+            Local     :      11
+        Regenerable   :       1
+        Spilled       :       2
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :      16 bytes*
+            Reads     :       2 [8.33e+00 ~ 8.3%]
+            Writes    :       2 [8.33e+00 ~ 8.3%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: printResults(double, double, double, double, double, double, double)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (printResults(double, double, double, double, double, double, double)) [4] trapezoidal.c(203,119)
+
+
+    Report from: Code generation optimizations [cg]
+
+trapezoidal.c(203,119):remark #34051: REGISTER ALLOCATION : [printResults] trapezoidal.c:203
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :    9[ rax rdi zmm0-zmm6]
+        
+    Routine temporaries
+        Total         :      42
+            Global    :      13
+            Local     :      29
+        Regenerable   :      16
+        Spilled       :       6
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :      48 bytes*
+            Reads     :      11 [1.92e+01 ~ 19.2%]
+            Writes    :       6 [1.14e+01 ~ 11.4%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: Trap_reduction(double, double, int, double)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (Trap_reduction(double, double, int, double)) [5] trapezoidal.c(173,60)
+  -> INLINE: (181,13) f(double)
+  -> INLINE: (181,22) f(double)
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at trapezoidal.c(179,2)
+remark #16204: OpenMP multithreaded code generation for SINGLE was successful
+OpenMP Construct at trapezoidal.c(178,2)
+remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at trapezoidal.c(178,2)
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ trapezoidal.c(180,3) ]
+   remark #25084: Preprocess Loopnests: Moving Out Store    [ trapezoidal.c(182,3) ]
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at trapezoidal.c(178,2)
+<Remainder loop for vectorization>
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+trapezoidal.c(173,60):remark #34051: REGISTER ALLOCATION : [Trap_reduction] trapezoidal.c:173
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   30[ rax rdx rcx rbx rsi rdi r8-r15 zmm0-zmm15]
+        
+    Routine temporaries
+        Total         :     304
+            Global    :      69
+            Local     :     235
+        Regenerable   :      89
+        Spilled       :       9
+        
+    Routine stack
+        Variables     :      82 bytes*
+            Reads     :       9 [5.20e-01 ~ 0.5%]
+            Writes    :      17 [4.65e+00 ~ 4.7%]
+        Spills        :     184 bytes*
+            Reads     :      31 [7.20e+00 ~ 7.2%]
+            Writes    :      25 [4.08e+00 ~ 4.1%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: Trap_critical(double, double, int, double)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (Trap_critical(double, double, int, double)) [6] trapezoidal.c(138,59)
+  -> INLINE: (159,14) f(double)
+  -> INLINE: (159,23) f(double)
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at trapezoidal.c(163,3)
+remark #16206: OpenMP multithreaded code generation for CRITICAL was successful
+OpenMP Construct at trapezoidal.c(143,2)
+remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at trapezoidal.c(158,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at trapezoidal.c(158,3)
+<Remainder loop for vectorization>
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+trapezoidal.c(138,59):remark #34051: REGISTER ALLOCATION : [Trap_critical] trapezoidal.c:138
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   29[ rax rdx rcx rbx rsi rdi r8-r10 r12-r15 zmm0-zmm15]
+        
+    Routine temporaries
+        Total         :     281
+            Global    :      64
+            Local     :     217
+        Regenerable   :      74
+        Spilled       :       9
+        
+    Routine stack
+        Variables     :      44 bytes*
+            Reads     :       5 [3.61e-01 ~ 0.4%]
+            Writes    :       8 [1.45e+00 ~ 1.4%]
+        Spills        :     184 bytes*
+            Reads     :      28 [7.19e+00 ~ 7.2%]
+            Writes    :      26 [2.24e+00 ~ 2.2%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: Trap_atomic(double, double, int, double)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (Trap_atomic(double, double, int, double)) [7] trapezoidal.c(104,57)
+  -> INLINE: (125,14) f(double)
+  -> INLINE: (125,23) f(double)
+
+
+    Report from: OpenMP optimizations [openmp]
+
+OpenMP Construct at trapezoidal.c(130,4)
+remark #16208: OpenMP multithreaded code generation for ATOMIC was successful
+OpenMP Construct at trapezoidal.c(109,2)
+remark #16201: OpenMP DEFINED REGION WAS PARALLELIZED
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at trapezoidal.c(124,3)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at trapezoidal.c(124,3)
+<Remainder loop for vectorization>
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+trapezoidal.c(104,57):remark #34051: REGISTER ALLOCATION : [Trap_atomic] trapezoidal.c:104
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   29[ rax rdx rcx rbx rsi rdi r8-r10 r12-r15 zmm0-zmm15]
+        
+    Routine temporaries
+        Total         :     279
+            Global    :      63
+            Local     :     216
+        Regenerable   :      68
+        Spilled       :       8
+        
+    Routine stack
+        Variables     :      56 bytes*
+            Reads     :       6 [3.63e-01 ~ 0.4%]
+            Writes    :       8 [1.45e+00 ~ 1.5%]
+        Spills        :     176 bytes*
+            Reads     :      27 [7.04e+00 ~ 7.0%]
+            Writes    :      25 [2.25e+00 ~ 2.2%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: Trap_secuentual(double, double, int, double)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (Trap_secuentual(double, double, int, double)) [8] trapezoidal.c(91,61)
+  -> INLINE: (97,13) f(double)
+  -> INLINE: (97,22) f(double)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at trapezoidal.c(96,2)
+   remark #15300: LOOP WAS VECTORIZED
+LOOP END
+
+LOOP BEGIN at trapezoidal.c(96,2)
+<Remainder loop for vectorization>
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+trapezoidal.c(91,61):remark #34051: REGISTER ALLOCATION : [Trap_secuentual] trapezoidal.c:91
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   20[ rax rsi rdi r12 zmm0-zmm15]
+        
+    Routine temporaries
+        Total         :     133
+            Global    :      47
+            Local     :      86
+        Regenerable   :      12
+        Spilled       :       8
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :     128 bytes*
+            Reads     :      13 [9.06e+00 ~ 9.1%]
+            Writes    :      10 [1.88e+00 ~ 1.9%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================

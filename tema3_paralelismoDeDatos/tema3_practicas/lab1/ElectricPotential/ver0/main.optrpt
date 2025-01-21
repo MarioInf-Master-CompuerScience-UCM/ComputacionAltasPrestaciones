@@ -1,0 +1,44 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C++ Intel(R) 64 Compiler Classic for applications running on Intel(R) 64, Version 2021.6.0 Build 20220226_000000
+
+Compiler options: -I. -g -std=c++11 -O2 -qopt-report=5 -qopt-report-phase=vec -qopt-report-filter=main.cc,15-25 -c -o main.o
+
+Begin optimization report for: main(int, char **)
+
+    Report from: Vector optimizations [vec]
+
+
+      LOOP BEGIN at main.cc(21,5) inlined into main.cc(75,13)
+         remark #15328: vectorization support: non-unit strided load was emulated for the variable <chg->x[i]>, stride is 5   [ main.cc(23,25) ]
+         remark #15328: vectorization support: non-unit strided load was emulated for the variable <chg->y[i]>, stride is 5   [ main.cc(24,25) ]
+         remark #15328: vectorization support: non-unit strided load was emulated for the variable <chg->z[i]>, stride is 5   [ main.cc(25,25) ]
+         remark #15305: vectorization support: vector length 2
+         remark #15309: vectorization support: normalized vectorization overhead 0.367
+         remark #15417: vectorization support: number of FP up converts: single precision to double precision 1   [ main.cc(23,24) ]
+         remark #15417: vectorization support: number of FP up converts: single precision to double precision 1   [ main.cc(24,24) ]
+         remark #15417: vectorization support: number of FP up converts: single precision to double precision 1   [ main.cc(25,24) ]
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15452: unmasked strided loads: 4 
+         remark #15475: --- begin vector cost summary ---
+         remark #15476: scalar cost: 82 
+         remark #15477: vector cost: 39.500 
+         remark #15478: estimated potential speedup: 2.070 
+         remark #15487: type converts: 6 
+         remark #15488: --- end vector cost summary ---
+      LOOP END
+===========================================================================
+
+Begin optimization report for: CalculateElectricPotential(int, const Charge *, double, double, double, float &)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at main.cc(21,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization
+   remark #15346: vector dependence: assumed ANTI dependence between chg->x[i] (23:36) and *phi (26:9)
+   remark #15346: vector dependence: assumed FLOW dependence between *phi (26:9) and chg->x[i] (23:36)
+LOOP END
+===========================================================================

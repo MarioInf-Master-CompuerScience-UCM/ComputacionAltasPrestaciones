@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <rdmgr>
+  <timestamp type="u64_t">1666820293</timestamp>
+  <hostname type="string">debian</hostname>
+  <os type="string">linux</os>
+  <product type="string">Intel® Advisor 2022.1</product>
+  <buildNumber type="s32_t">613050</buildNumber>
+  <logicalCPUCount type="s32_t">4</logicalCPUCount>
+  <physicalCoreCount type="s32_t">2</physicalCoreCount>
+  <processorPackageCount type="s32_t">1</processorPackageCount>
+  <CPUFrequency type="s64_t">2000000000</CPUFrequency>
+  <CPUFamily type="s32_t">6</CPUFamily>
+  <CPUModel type="s32_t">78</CPUModel>
+  <CPUStepping type="s32_t">3</CPUStepping>
+  <CPUBrandName type="string">Intel(R) Core(TM) i3-6006U CPU @ 2.00GHz</CPUBrandName>
+  <isa type="string">avx2</isa>
+  <collectionTimeBegin type="u64_t">1666820294</collectionTimeBegin>
+  <collectionTimeEnd type="u64_t">1666820295</collectionTimeEnd>
+  <finalizationTimeBegin type="u64_t">1666820296</finalizationTimeBegin>
+  <finalizationTimeEnd type="u64_t">1666820297</finalizationTimeEnd>
+ </rdmgr>
+</root>

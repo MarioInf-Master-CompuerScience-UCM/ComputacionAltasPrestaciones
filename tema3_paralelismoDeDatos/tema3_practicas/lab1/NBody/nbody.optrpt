@@ -1,0 +1,197 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C Intel(R) 64 Compiler Classic for applications running on Intel(R) 64, Version 2021.6.0 Build 20220226_000000
+
+Compiler options: -I. -c -o nbody.o -O3 -g -qopt-report=3 -xCORE_AVX2
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+
+Begin optimization report for: main(const int, const char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (main(const int, const char **)) [1] nbody.c(54,45)
+  -> INLINE (MANUAL): (57,26) atoi(const char *)
+    -> EXTERN: /usr/include/stdlib.h:(363,16) strtol(const char *__restrict__, char **__restrict__, int)
+  -> EXTERN: (62,16) _mm_malloc(unsigned long long, unsigned long long)
+  -> EXTERN: (63,16) _mm_malloc(unsigned long long, unsigned long long)
+  -> EXTERN: (64,16) _mm_malloc(unsigned long long, unsigned long long)
+  -> EXTERN: (65,16) _mm_malloc(unsigned long long, unsigned long long)
+  -> EXTERN: (66,17) _mm_malloc(unsigned long long, unsigned long long)
+  -> EXTERN: (67,17) _mm_malloc(unsigned long long, unsigned long long)
+  -> EXTERN: (68,17) _mm_malloc(unsigned long long, unsigned long long)
+  -> EXTERN: (71,20) rand(void)
+  -> EXTERN: (72,20) rand(void)
+  -> EXTERN: (73,20) rand(void)
+  -> EXTERN: (74,20) rand(void)
+  -> EXTERN: (75,21) rand(void)
+  -> EXTERN: (76,21) rand(void)
+  -> EXTERN: (77,21) rand(void)
+  -> EXTERN: (83,14) get_time()
+  -> EXTERN: (126,21) get_time()
+  -> EXTERN: (136,2) printf(const char *__restrict__, ...)
+  -> EXTERN: (137,2) printf(const char *__restrict__, ...)
+  -> EXTERN: (139,3) _mm_free(void *)
+  -> EXTERN: (140,2) _mm_free(void *)
+  -> EXTERN: (141,2) _mm_free(void *)
+  -> EXTERN: (142,2) _mm_free(void *)
+  -> EXTERN: (143,2) _mm_free(void *)
+  -> EXTERN: (144,2) _mm_free(void *)
+  -> EXTERN: (145,2) _mm_free(void *)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at nbody.c(70,2)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between call:rand(void) (71:20) and call:rand(void) (77:21)
+LOOP END
+
+LOOP BEGIN at nbody.c(84,2)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at nbody.c(86,3)
+      remark #25236: Loop with pragma of trip count = 1000 ignored for large value
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at nbody.c(98,4)
+      <Predicate Optimized v1>
+         remark #25423: Condition at line 99 hoisted out of this loop
+         remark #15301: SIMD LOOP WAS VECTORIZED
+         remark #15448: unmasked aligned unit stride loads: 3 
+         remark #15475: --- begin vector cost summary ---
+         remark #15476: scalar cost: 100 
+         remark #15477: vector cost: 11.370 
+         remark #15478: estimated potential speedup: 8.710 
+         remark #15488: --- end vector cost summary ---
+         remark #25015: Estimate of max trip count of loop=125
+      LOOP END
+
+      LOOP BEGIN at nbody.c(98,4)
+      <Remainder loop for vectorization, Predicate Optimized v1>
+         remark #25015: Estimate of max trip count of loop=1000
+      LOOP END
+
+      LOOP BEGIN at nbody.c(98,4)
+      <Predicate Optimized v2>
+         remark #15301: SIMD LOOP WAS VECTORIZED
+         remark #15450: unmasked unaligned unit stride loads: 3 
+         remark #15475: --- begin vector cost summary ---
+         remark #15476: scalar cost: 100 
+         remark #15477: vector cost: 11.750 
+         remark #15478: estimated potential speedup: 8.430 
+         remark #15488: --- end vector cost summary ---
+         remark #25015: Estimate of max trip count of loop=125
+      LOOP END
+
+      LOOP BEGIN at nbody.c(98,4)
+      <Remainder loop for vectorization, Predicate Optimized v2>
+         remark #25015: Estimate of max trip count of loop=1000
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at nbody.c(119,3)
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15448: unmasked aligned unit stride loads: 6 
+      remark #15449: unmasked aligned unit stride stores: 3 
+      remark #15475: --- begin vector cost summary ---
+      remark #15476: scalar cost: 29 
+      remark #15477: vector cost: 2.620 
+      remark #15478: estimated potential speedup: 7.880 
+      remark #15488: --- end vector cost summary ---
+   LOOP END
+
+   LOOP BEGIN at nbody.c(119,3)
+   <Remainder loop for vectorization>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+      remark #15448: unmasked aligned unit stride loads: 6 
+      remark #15449: unmasked aligned unit stride stores: 3 
+      remark #15475: --- begin vector cost summary ---
+      remark #15476: scalar cost: 29 
+      remark #15477: vector cost: 2.620 
+      remark #15478: estimated potential speedup: 7.880 
+      remark #15488: --- end vector cost summary ---
+   LOOP END
+
+   LOOP BEGIN at nbody.c(119,3)
+   <Remainder loop for vectorization>
+   LOOP END
+LOOP END
+
+LOOP BEGIN at nbody.c(130,2)
+   remark #15300: LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 5 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 60 
+   remark #15477: vector cost: 5.750 
+   remark #15478: estimated potential speedup: 7.490 
+   remark #15488: --- end vector cost summary ---
+LOOP END
+
+LOOP BEGIN at nbody.c(130,2)
+<Remainder loop for vectorization>
+   remark #15301: REMAINDER LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 5 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 60 
+   remark #15477: vector cost: 5.750 
+   remark #15478: estimated potential speedup: 7.490 
+   remark #15488: --- end vector cost summary ---
+LOOP END
+
+LOOP BEGIN at nbody.c(130,2)
+<Remainder loop for vectorization>
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+nbody.c(54,45):remark #34051: REGISTER ALLOCATION : [main] nbody.c:54
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   30[ rax rdx rcx rbx rsi rdi r8-r15 zmm0-zmm15]
+        
+    Routine temporaries
+        Total         :     434
+            Global    :     137
+            Local     :     297
+        Regenerable   :      35
+        Spilled       :      20
+        
+    Routine stack
+        Variables     :       4 bytes*
+            Reads     :       2 [8.44e-06 ~ 0.0%]
+            Writes    :       2 [8.44e-06 ~ 0.0%]
+        Spills        :     144 bytes*
+            Reads     :      44 [1.56e-02 ~ 0.0%]
+            Writes    :      17 [2.71e-03 ~ 0.0%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: atoi(const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (atoi(const char *))/usr/include/stdlib.h(362,1)
+
+===========================================================================

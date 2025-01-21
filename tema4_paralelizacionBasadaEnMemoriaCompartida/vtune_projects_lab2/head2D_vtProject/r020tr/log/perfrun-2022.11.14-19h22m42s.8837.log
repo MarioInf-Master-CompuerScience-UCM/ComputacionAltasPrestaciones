@@ -1,0 +1,107 @@
+16 [140449245472640] INFO perfrun.launcher <> - Launcher main begin
+17 [140449245472640] INFO perfrun.launcher <> - MessageCatalogInit finished
+17 [140449245472640] INFO perfrun.launcher <> - Launcher instance created
+17 [140449245472640] INFO perfrun.launcher <> - argc = 7; cmdline = /opt/intel/oneapi/vtune/2022.2.0/bin64/amplxe-runss --ui-output-format xml --ui-output-fd 14 --option-file /home/mario/Documentos/masterIngenieriaInformatica/computacionAltasPrestaciones/tema4_paralelizacionBasadaEnMemoriaCompartida/vtune_projects_lab2/head2D_vtProject/r020tr/config/runss.options 
+97 [140449245472640] INFO perfrun.launcher <> - create msngr2::ICliToolContext
+98 [140449245472640] INFO perfrun.launcher <> - create file finder object
+98 [140449245472640] INFO perfrun.launcher <> - create a result directory: pattern = /home/mario/Documentos/masterIngenieriaInformatica/computacionAltasPrestaciones/tema4_paralelizacionBasadaEnMemoriaCompartida/vtune_projects_lab2/head2D_vtProject/r020tr pid = 4294967295
+102 [140449245472640] INFO perfrun.sdk <> - checked that the directory /home/mario/Documentos/masterIngenieriaInformatica/computacionAltasPrestaciones/tema4_paralelizacionBasadaEnMemoriaCompartida/vtune_projects_lab2/head2D_vtProject/r020tr is a local directory
+102 [140449245472640] INFO perfrun.sdk <> - the directory /home/mario/Documentos/masterIngenieriaInformatica/computacionAltasPrestaciones/tema4_paralelizacionBasadaEnMemoriaCompartida/vtune_projects_lab2/head2D_vtProject/r020tr is a local directory with FS type ID 61267
+102 [140449245472640] INFO perfrun.launcher <> - create data directory = /home/mario/Documentos/masterIngenieriaInformatica/computacionAltasPrestaciones/tema4_paralelizacionBasadaEnMemoriaCompartida/vtune_projects_lab2/head2D_vtProject/r020tr/data.0
+102 [140449245472640] INFO perfrun.launcher <> - Creating the master collection flag
+138 [140449245472640] INFO perfrun.launcher <> - Done creating the master collection flag
+140 [140449235957504] INFO perfrun.launcher <> - plugin [remoteplug] was disabled because it doesn't support the given collection type.
+140 [140449235957504] INFO perfrun.sdk <> - Allocating TMU :/home/mario/Documentos/masterIngenieriaInformatica/computacionAltasPrestaciones/tema4_paralelizacionBasadaEnMemoriaCompartida/vtune_projects_lab2/head2D_vtProject/r020tr/data.0/systemcollector-8837-debian.sc
+140 [140449235957504] INFO perfrun.system <> - Tpss based collection
+140 [140449235957504] INFO perfrun.launcher <> - plugin [ptracecollector] was disabled because it doesn't support the given collection type.
+140 [140449235957504] INFO perfrun.launcher <> - plugin [gpu] was disabled because it doesn't support the given collection type.
+140 [140449235957504] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+140 [140449235957504] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+140 [140449235957504] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+141 [140449235957504] INFO perfrun.mrte <> - system-wide mode is 0
+141 [140449235957504] INFO perfrun.mrte <> - Getting  mrte profiling environment ...
+156 [140449235957504] INFO perfrun.mrte <> - INTEL_MRTE_DATA_DIR=/home/mario/Documentos/masterIngenieriaInformatica/computacionAltasPrestaciones/tema4_paralelizacionBasadaEnMemoriaCompartida/vtune_projects_lab2/head2D_vtProject/r020tr/data.0
+156 [140449235957504] INFO perfrun.mrte <> - INTEL_MRTE_HOST_NAME=debian
+156 [140449235957504] INFO perfrun.mrte <> - JAVA_TOOL_OPTIONS=-agentlib:amplxe_tpssmrte_javaprof_1.0 -Dsun.boot.library.path=/opt/intel/oneapi/vtune/2022.2.0/lib32/runtime:/opt/intel/oneapi/vtune/2022.2.0/lib64/runtime
+156 [140449235957504] INFO perfrun.mrte <> - LD_LIBRARY_PATH=/opt/intel/oneapi/vtune/2022.2.0/lib32/runtime:/opt/intel/oneapi/vtune/2022.2.0/lib64/runtime:/opt/intel/oneapi/vpl/2022.1.0/lib:/opt/intel/oneapi/tbb/2021.6.0/env/../lib/intel64/gcc4.8:/opt/intel/oneapi/mpi/2021.6.0//libfabric/lib:/opt/intel/oneapi/mpi/2021.6.0//lib/release:/opt/intel/oneapi/mpi/2021.6.0//lib:/opt/intel/oneapi/mkl/2022.1.0/lib/intel64:/opt/intel/oneapi/itac/2021.6.0/slib:/opt/intel/oneapi/ipp/2021.6.0/lib/intel64:/opt/intel/oneapi/ippcp/2021.6.0/lib/intel64:/opt/intel/oneapi/ipp/2021.6.0/lib/intel64:/opt/intel/oneapi/dnnl/2022.1.0/cpu_dpcpp_gpu_dpcpp/lib:/opt/intel/oneapi/debugger/2021.6.0/gdb/intel64/lib:/opt/intel/oneapi/debugger/2021.6.0/libipt/intel64/lib:/opt/intel/oneapi/debugger/2021.6.0/dep/lib:/opt/intel/oneapi/dal/2021.6.0/lib/intel64:/opt/intel/oneapi/compiler/2022.1.0/linux/lib:/opt/intel/oneapi/compiler/2022.1.0/linux/lib/x64:/opt/intel/oneapi/compiler/2022.1.0/linux/lib/oclfpga/host/linux64/lib:/opt/intel/oneapi/compiler/2022.1.0/linux/compiler/lib/intel64_lin:/opt/intel/oneapi/ccl/2021.6.0/lib/cpu_gpu_dpcpp
+156 [140449235957504] INFO perfrun.mrte <> - CORECLR_ENABLE_PROFILING=1
+156 [140449235957504] INFO perfrun.mrte <> - CORECLR_PROFILER={AA5E4821-E3B1-479c-B7FF-5AD047D22CED}
+156 [140449235957504] INFO perfrun.mrte <> - CORECLR_PROFILER_PATH=/opt/intel/oneapi/vtune/2022.2.0/lib64/libamplxe_samplingmrte_clrprof_1.0.so
+156 [140449235957504] INFO perfrun.mrte <> - INTEL_MRTE_PROFILER_MODE=mixed
+156 [140449235957504] INFO perfrun.mrte <> - Data directory: /home/mario/Documentos/masterIngenieriaInformatica/computacionAltasPrestaciones/tema4_paralelizacionBasadaEnMemoriaCompartida/vtune_projects_lab2/head2D_vtProject/r020tr/data.0
+156 [140449235957504] INFO perfrun.mrte <> - Mrte plugin is initialized
+156 [140449235957504] INFO perfrun.launcher <> - plugin [emon] was disabled because it doesn't support the given collection type.
+156 [140449235957504] INFO perfrun.launcher <> - plugin [cuscol] was disabled because it doesn't support the given collection type.
+156 [140449235957504] INFO perfrun.launcher <> - plugin [stdsrc] was disabled because it doesn't support the given collection type.
+156 [140449235957504] INFO perfrun.launcher <> - plugin [sep] was disabled because it doesn't support the given collection type.
+156 [140449235957504] INFO perfrun.launcher <> - plugin [vtsspp] was disabled because it doesn't support the given collection type.
+156 [140449235957504] INFO perfrun.launcher <> - plugin [perf] was disabled because it doesn't support the given collection type.
+156 [140449235957504] INFO perfrun.launcher <> - plugin [aoclprofile] was disabled because it doesn't support the given collection type.
+156 [140449235957504] INFO perfrun.tpss <> - initialize tpss controller
+156 [140449235957504] INFO perfrun.tpss <> - configure collection mode: value = cpu:counters:nostack
+156 [140449235957504] INFO perfrun.tpss <> - configure collection mode: value = cpu:stack
+156 [140449235957504] INFO perfrun.tpss <> - configure collection mode: value = threading:stack
+156 [140449235957504] INFO perfrun.tpss <> - configure collection mode: value = waiting:stack
+156 [140449235957504] INFO perfrun.tpss <> - configure collection mode: value = io:stack
+156 [140449235957504] INFO perfrun.tpss <> - default obj-size-min=1024
+156 [140449235957504] INFO perfrun.tpss <> - default hash-table-size=0
+156 [140449235957504] INFO perfrun.launcher <> - plugin [media] was disabled because it doesn't support the given collection type.
+156 [140449235957504] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+156 [140449235957504] INFO perfrun.launcher <> - plugin [] was disabled because it doesn't support the given collection type.
+156 [140449235957504] INFO perfrun.launcher <> - plugin [parallelfs] was disabled because it doesn't support the given collection type.
+156 [140449235957504] INFO perfrun.launcher <> - plugin [power] was disabled because it doesn't support the given collection type.
+156 [140449235957504] INFO perfrun.launcher <> - plugin [hwloc] was disabled because it doesn't support the given collection type.
+156 [140449235957504] INFO perfrun.launcher <> - plugin [ipmwatch] was disabled because it doesn't support the given collection type.
+156 [140449235957504] INFO perfrun.launcher <> - plugin [os_counters] was disabled because it doesn't support the given collection type.
+157 [140449235957504] INFO perfrun.launcher <> - plugin [l0_metrics] was disabled because it doesn't support the given collection type.
+157 [140449245472640] INFO perfrun.launcher <> - set environment variable: LD_LIBRARY_PATH = /opt/intel/oneapi/vtune/2022.2.0/lib32/runtime:/opt/intel/oneapi/vtune/2022.2.0/lib64/runtime:/opt/intel/oneapi/vpl/2022.1.0/lib:/opt/intel/oneapi/tbb/2021.6.0/env/../lib/intel64/gcc4.8:/opt/intel/oneapi/mpi/2021.6.0//libfabric/lib:/opt/intel/oneapi/mpi/2021.6.0//lib/release:/opt/intel/oneapi/mpi/2021.6.0//lib:/opt/intel/oneapi/mkl/2022.1.0/lib/intel64:/opt/intel/oneapi/itac/2021.6.0/slib:/opt/intel/oneapi/ipp/2021.6.0/lib/intel64:/opt/intel/oneapi/ippcp/2021.6.0/lib/intel64:/opt/intel/oneapi/ipp/2021.6.0/lib/intel64:/opt/intel/oneapi/dnnl/2022.1.0/cpu_dpcpp_gpu_dpcpp/lib:/opt/intel/oneapi/debugger/2021.6.0/gdb/intel64/lib:/opt/intel/oneapi/debugger/2021.6.0/libipt/intel64/lib:/opt/intel/oneapi/debugger/2021.6.0/dep/lib:/opt/intel/oneapi/dal/2021.6.0/lib/intel64:/opt/intel/oneapi/compiler/2022.1.0/linux/lib:/opt/intel/oneapi/compiler/2022.1.0/linux/lib/x64:/opt/intel/oneapi/compiler/2022.1.0/linux/lib/oclfpga/host/linux64/lib:/opt/intel/oneapi/compiler/2022.1.0/linux/compiler/lib/intel64_lin:/opt/intel/oneapi/ccl/2021.6.0/lib/cpu_gpu_dpcpp
+157 [140449245472640] INFO perfrun.launcher <> - set environment variable: INTEL_LIBITTNOTIFY32 = /opt/intel/oneapi/vtune/2022.2.0/lib32/runtime/libittnotify_collector.so
+157 [140449245472640] INFO perfrun.launcher <> - set environment variable: INTEL_LIBITTNOTIFY64 = /opt/intel/oneapi/vtune/2022.2.0/lib64/runtime/libittnotify_collector.so
+157 [140449245472640] INFO perfrun.launcher <> - set environment variable: INTEL_ITTNOTIFY_GROUPS = 
+157 [140449245472640] INFO perfrun.launcher <> - set environment variable: INTEL_JIT_PROFILER32 = /opt/intel/oneapi/vtune/2022.2.0/lib32/runtime/libittnotify_collector.so
+157 [140449245472640] INFO perfrun.launcher <> - set environment variable: INTEL_JIT_PROFILER64 = /opt/intel/oneapi/vtune/2022.2.0/lib64/runtime/libittnotify_collector.so
+157 [140449245472640] INFO perfrun.launcher <> - set environment variable: VS_PROFILER = libittnotify_collector.so
+157 [140449245472640] INFO perfrun.launcher <> - set environment variable: OMP_TOOL_LIBRARIES = /opt/intel/oneapi/vtune/2022.2.0/lib32/runtime/libittnotify_collector.so:/opt/intel/oneapi/vtune/2022.2.0/lib64/runtime/libittnotify_collector.so
+157 [140449245472640] INFO perfrun.launcher <> - set environment variable: ENABLE_JITPROFILING = 1
+157 [140449245472640] INFO perfrun.launcher <> - set environment variable: CL_CONFIG_USE_VTUNE = True
+157 [140449245472640] INFO perfrun.launcher <> - set environment variable: INTEL_MRTE_DATA_DIR = /home/mario/Documentos/masterIngenieriaInformatica/computacionAltasPrestaciones/tema4_paralelizacionBasadaEnMemoriaCompartida/vtune_projects_lab2/head2D_vtProject/r020tr/data.0
+157 [140449245472640] INFO perfrun.launcher <> - set environment variable: INTEL_MRTE_HOST_NAME = debian
+157 [140449245472640] INFO perfrun.launcher <> - set environment variable: JAVA_TOOL_OPTIONS = -agentlib:amplxe_tpssmrte_javaprof_1.0 -Dsun.boot.library.path=/opt/intel/oneapi/vtune/2022.2.0/lib32/runtime:/opt/intel/oneapi/vtune/2022.2.0/lib64/runtime
+157 [140449245472640] INFO perfrun.launcher <> - set environment variable: LD_LIBRARY_PATH = /opt/intel/oneapi/vtune/2022.2.0/lib32/runtime:/opt/intel/oneapi/vtune/2022.2.0/lib64/runtime:/opt/intel/oneapi/vpl/2022.1.0/lib:/opt/intel/oneapi/tbb/2021.6.0/env/../lib/intel64/gcc4.8:/opt/intel/oneapi/mpi/2021.6.0//libfabric/lib:/opt/intel/oneapi/mpi/2021.6.0//lib/release:/opt/intel/oneapi/mpi/2021.6.0//lib:/opt/intel/oneapi/mkl/2022.1.0/lib/intel64:/opt/intel/oneapi/itac/2021.6.0/slib:/opt/intel/oneapi/ipp/2021.6.0/lib/intel64:/opt/intel/oneapi/ippcp/2021.6.0/lib/intel64:/opt/intel/oneapi/ipp/2021.6.0/lib/intel64:/opt/intel/oneapi/dnnl/2022.1.0/cpu_dpcpp_gpu_dpcpp/lib:/opt/intel/oneapi/debugger/2021.6.0/gdb/intel64/lib:/opt/intel/oneapi/debugger/2021.6.0/libipt/intel64/lib:/opt/intel/oneapi/debugger/2021.6.0/dep/lib:/opt/intel/oneapi/dal/2021.6.0/lib/intel64:/opt/intel/oneapi/compiler/2022.1.0/linux/lib:/opt/intel/oneapi/compiler/2022.1.0/linux/lib/x64:/opt/intel/oneapi/compiler/2022.1.0/linux/lib/oclfpga/host/linux64/lib:/opt/intel/oneapi/compiler/2022.1.0/linux/compiler/lib/intel64_lin:/opt/intel/oneapi/ccl/2021.6.0/lib/cpu_gpu_dpcpp
+157 [140449245472640] INFO perfrun.launcher <> - set environment variable: CORECLR_ENABLE_PROFILING = 1
+157 [140449245472640] INFO perfrun.launcher <> - set environment variable: CORECLR_PROFILER = {AA5E4821-E3B1-479c-B7FF-5AD047D22CED}
+157 [140449245472640] INFO perfrun.launcher <> - set environment variable: CORECLR_PROFILER_PATH = /opt/intel/oneapi/vtune/2022.2.0/lib64/libamplxe_samplingmrte_clrprof_1.0.so
+158 [140449245472640] INFO perfrun.launcher <> - set environment variable: INTEL_MRTE_PROFILER_MODE = mixed
+158 [140449245472640] INFO perfrun.launcher <> - RpcServer: run RPC server to handle requests
+158 [140449245472640] INFO perfrun.launcher <> - Launcher: command line to start before modification = /home/mario/Documentos/masterIngenieriaInformatica/computacionAltasPrestaciones/tema4_paralelizacionBasadaEnMemoriaCompartida/lab2/Heat2D/heat
+158 [140449245472640] INFO perfrun.launcher <> - Launcher: command line to start after modification = /opt/intel/oneapi/vtune/2022.2.0/bin64/pin -error_file /home/mario/Documentos/masterIngenieriaInformatica/computacionAltasPrestaciones/tema4_paralelizacionBasadaEnMemoriaCompartida/vtune_projects_lab2/head2D_vtProject/r020tr/data.0/pinerr.tpsslog -detach_reattach -follow_execv -tool_load_option deepbind -t64 /opt/intel/oneapi/vtune/2022.2.0/lib64/libtpsstool.so -t /opt/intel/oneapi/vtune/2022.2.0/lib32/libtpsstool.so -server_name tpss_ipc.8837 -prd_dir /opt/intel/oneapi/vtune/2022.2.0 -- /home/mario/Documentos/masterIngenieriaInformatica/computacionAltasPrestaciones/tema4_paralelizacionBasadaEnMemoriaCompartida/lab2/Heat2D/heat
+158 [140449245472640] INFO perfrun.launcher <> - ProcessCreator object was created
+159 [140449245472640] INFO perfrun.launcher <> - Launcher: the process was started in suspend mode
+160 [140449235957504] WARN perfrun.system <> - Could not do anything with /sys/kernel/debug/kvm: boost::filesystem::status: Permission denied: "/sys/kernel/debug/kvm", at file: vcs/perfrun1/plugins/system/src/trace_writer.cpp:787
+160 [140449235957504] WARN perfrun.system <> - File "/var/run/libvirt/qemu/driver.xml" doesn't exist, at file: vcs/perfrun1/plugins/system/src/trace_writer.cpp:892
+160 [140449235957504] WARN perfrun.sdk <> - Failed to find xl binary on any of the system paths: /bin, /sbin, /usr/bin, /usr/sbin., at file: vcs/perfrun1/sdk/src/utils.cpp:204
+161 [140449235957504] WARN perfrun.system <> - Could not start ContainerMapping collector, at file: vcs/perfrun1/plugins/system/src/controller.cpp:448
+170 [140449235957504] INFO perfrun.vdso <> - Helper runtool '/opt/intel/oneapi/vtune/2022.2.0/bin32/amplxe-runss -dump-vdso -r /home/mario/Documentos/masterIngenieriaInformatica/computacionAltasPrestaciones/tema4_paralelizacionBasadaEnMemoriaCompartida/vtune_projects_lab2/head2D_vtProject/r020tr --tmp-dir /tmp/amplxe-tmp-mario' returned 1
+346 [140449235957504] INFO perfrun.vdso <> - Helper runtool '/opt/intel/oneapi/vtune/2022.2.0/bin64/amplxe-runss -dump-vdso -r /home/mario/Documentos/masterIngenieriaInformatica/computacionAltasPrestaciones/tema4_paralelizacionBasadaEnMemoriaCompartida/vtune_projects_lab2/head2D_vtProject/r020tr --tmp-dir /tmp/amplxe-tmp-mario' returned 0
+346 [140449235957504] INFO perfrun.itt <> - start itt controller for pid #8850
+346 [140449235957504] INFO perfrun.tpss <> - start tpss controller for pid #8850
+397 [140449245472640] INFO perfrun.launcher <> - Launcher: all plugins were started
+397 [140449245472640] INFO perfrun.launcher <> - DirectoryMonitor object was created
+397 [140449245472640] INFO perfrun.launcher <> - DirectoryMonitor: a callback was added
+397 [140449245472640] INFO perfrun.launcher <> - DirectoryMonitor was started with pingTime = 1000
+397 [140449245472640] INFO perfrun.launcher <> - DeadlineTimer is going to be constructed
+397 [140449245472640] INFO perfrun.launcher <> - DeadlineTimer: a callback was added
+441 [140449245472640] INFO perfrun.launcher <> - Launcher: resume the profiled application and  wait its termination or stop command
+1721 [140449245472640] INFO perfrun.launcher <> - Launcher: the profiled application was terminated  with exit code = 0
+1730 [140449235957504] INFO perfrun.itt <> - detach itt controller
+1730 [140449235957504] INFO perfrun.itt <> - detach itt controller done
+1730 [140449235957504] INFO perfrun.tpss <> - stop tpss controller
+1731 [140449235957504] INFO perfrun.sdk <> - De-allocating TMU: /home/mario/Documentos/masterIngenieriaInformatica/computacionAltasPrestaciones/tema4_paralelizacionBasadaEnMemoriaCompartida/vtune_projects_lab2/head2D_vtProject/r020tr/data.0/systemcollector-8837-debian.sc
+1731 [140449235957504] INFO perfrun.system <> - closed the system trace file: /home/mario/Documentos/masterIngenieriaInformatica/computacionAltasPrestaciones/tema4_paralelizacionBasadaEnMemoriaCompartida/vtune_projects_lab2/head2D_vtProject/r020tr/data.0/systemcollector-8837-debian.sc
+1731 [140449245472640] INFO perfrun.launcher <> - Launcher: all plugins were stopped.
+1731 [140449245472640] INFO perfrun.launcher <> - DeadlineTimer is going to be destroyed
+1731 [140449245472640] INFO perfrun.launcher <> - DeadlineTimer was destroyed
+1731 [140449245472640] INFO perfrun.launcher <> - DirectoryMonitor object was destroyed
+1731 [140449245472640] WARN perfrun.launcher <> - Stop command is ignored because it is received when collection is already stopped, at file: vcs/perfrun1/launcher/src/command_handler.cpp:226
+1732 [140449245472640] INFO perfrun.launcher <> - Application exit code: 0
+1732 [140449245472640] INFO perfrun.launcher <> - Exit code: 0

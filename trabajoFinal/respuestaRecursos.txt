@@ -1,0 +1,16 @@
+Hola Mario,
+
+te paso algunos enlaces sobre la información que te comenté los dos primeros creo que son los oficiales de Intel:
+- Taller de FPGAs con SYCL/DPC++: https://www.youtube.com/watch?v=mvvmKsAKhqg&ab_channel=IntelFPGA
+- Github con códigos y taller: https://github.com/oneapi-src/oneAPI-samples/tree/master/DirectProgramming/DPC%2B%2BFPGA
+
+También puedes encontrar un taller que creo que está interesante, lo imparte Rafael Asenjo de la UMA que habla de una visión general de lo que es FPGA, para que se puede utilizar en comparación con otros dispositivos que hemos visto en la asignatura: https://www.youtube.com/watch?v=bZueYFNnd60&ab_channel=Danysoft
+
+Y por último, también puedes encontrar material sobre un taller que impartí hace un par de años sobre el uso de DPC++ con FPGAs en youtube: https://www.youtube.com/watch?v=f5wNUxsrm5c&t=23s&ab_channel=Danysoft y el material en el que me basé está en el devcloud en /data/oneapi_workshop/FPGALabExercise_DevCloud.pdf y /data/oneapi_workshop/Hough_Transform_on_FPGAs_Using_oneAPI/
+
+Espero que con esto tengáis un buen punto de partida.
+
+
+Libro DPC++ y SYCL: https://link.springer.com/book/10.1007/978-1-4842-5574-2
+SYCL y DPC++: https://www.youtube.com/watch?v=hfee4b2V-a4&t=4181s&ab_channel=Danysoft
+
