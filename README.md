@@ -1,13 +1,27 @@
 # Computación de altas prestaciones
 
-**_Los presentes contenidos corresponden con la edición del curso 2022-2023_**
+![Idioma: Español](https://img.shields.io/badge/Idioma-Español-green.svg)
+![Idioma: Español](https://img.shields.io/badge/Año_académico-2022/2023-blue.svg)
+![Idioma: Español](https://img.shields.io/badge/Curso_académico-Segundo_curso-blue.svg)
 
 Enlaces relevantes:
 
 - [Página web de la titulación](https://informatica.ucm.es/master-en-ingenieria-informatica)
 - [Ficha docente de la asignatura](docs/fichaDocente.pdf)
 
-Programa de la asignatura:
+## Organización del repositorio
+
+- Contenidos teóricos/prácticos:
+  - [Tema 1 - Introducción](tema1_introduccion)
+  - [Tema 2 - Arquitecturas y aplicaciones paralelas](tema2_arquitecturasYAplicacionesParalelas)
+  - [Tema 3 - Paralelismo de datos](tema3_paralelismoDeDatos)
+  - [Tema 4 - Paralelización basada en memoria compartida](tema4_paralelizacionBasadaEnMemoriaCompartida)
+  - [Tema 6 - Computación heterogénea](tema6_computacionHeterogenea)
+- Otros contenidos:
+  - [Trabajo final](trabajoFinal)
+  - [Exámenes](examenes)
+
+## Programa de la asignatura
 
 - Módulo 1. Introducción a la computación de altas prestaciones
   - Complejidad, grado de paralelismo y granularidad
