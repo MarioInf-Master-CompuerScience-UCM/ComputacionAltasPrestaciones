@@ -2,7 +2,7 @@
 
 ![Idioma: Español](https://img.shields.io/badge/Idioma-Español-green.svg)
 ![Idioma: Español](https://img.shields.io/badge/Año_académico-2022/2023-blue.svg)
-![Idioma: Español](https://img.shields.io/badge/Curso_académico-Segundo_curso-blue.svg)
+![Idioma: Español](https://img.shields.io/badge/Curso_académico-Primer_curso-blue.svg)
 
 Enlaces relevantes:
 
